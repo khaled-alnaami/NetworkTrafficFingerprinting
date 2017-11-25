@@ -1,0 +1,193 @@
+yum groupinstall "Development tools"
+yum install zlib-devel
+yum install bzip2-devel
+yum install openssl-devel
+yum install ncurses-devel
+yum install sqlite-devel
+
+cd /opt
+wget --no-check-certificate https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz
+tar xf Python-2.7.6.tar.xz
+cd Python-2.7.6
+./configure --prefix=/usr/local
+make && make altinstall
+
+
+ln -s /usr/local/bin/python2.7 /usr/local/bin/python
+
+wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+sudo /usr/local/bin/python2.7 ez_setup.py
+sudo /usr/local/bin/easy_install-2.7 pip
+
+add to .bashrc
+
+export PATH="/usr/local/bin:$PATH"
+logout and login
+
+source .bashrc
+
+install gensim
+
+sudo yum install python-devel python-nose python-setuptools gcc gcc-gfortran gcc-c++ blas-devel lapack-devel atlas-devel
+easy_install pip
+pip install numpy
+pip install scipy
+pip install --upgrade gensim
+
+
+install cython
+
+pip install cython
+download glove
+wget https://github.com/maciejkula/glove-python/archive/master.zip
+
+unzip master
+cd glove-python-master
+edit setup.py
+change c++11 to c++0x
+
+run
+python setup.py install
+
+--------old-do not run----
+in /root folder
+wget http://ftp.gnu.org/gnu/glpk/glpk-4.54.tar.gz
+tar xfzv glpk-4.54.tar.gz
+mkdir GLPK
+cd glpk-4.54
+./configure --prefix=/root/GLPK
+make
+make install
+
+
+in /root folder 
+
+wget https://github.com/cvxopt/cvxopt/archive/1.1.7.tar.gz
+
+tar xfzv 1.1.7
+cd cvxopt-1.1.7
+
+edit setup.py
+# Set to 1 if you are installing the glpk module.
+BUILD_GLPK = 1 
+
+# Directory containing libglpk (used only when BUILD_GLPK = 1).
+GLPK_LIB_DIR = '/root/GLPK/lib'
+
+# Directory containing glpk.h (used only when BUILD_GLPK = 1).
+GLPK_INC_DIR = '/root/GLPK/include'
+
+python setup.py install
+
+--------old---end---------
+
+pip uninstall cvxopt
+
+in /root folder
+wget http://ftp.gnu.org/gnu/glpk/glpk-4.47.tar.gz
+tar xfzv glpk-4.47.tar.gz
+mkdir GLPK2
+cd glpk-4.47
+./configure --prefix=/root/GLPK2
+make
+make install
+
+
+in /root folder 
+
+wget http://abel.ee.ucla.edu/src/cvxopt-0.9.1.tar.gz
+
+tar xfzv cvxopt-0.9.1.tar.gz
+cd cvxopt-0.9.1/src
+
+edit setup.py
+# Set to 1 if you are installing the glpk module.
+BUILD_GLPK = 1 
+
+# Directory containing libglpk (used only when BUILD_GLPK = 1).
+GLPK_LIB_DIR = '/root/GLPK2/lib'
+
+# Directory containing glpk.h (used only when BUILD_GLPK = 1).
+GLPK_INC_DIR = '/root/GLPK2/include'
+
+python setup.py install
+
+here
+cp /root/GLPK2/lib/* /usr/local/lib
+
+add the following line to .bashrc
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+ 
+then run:
+source .bashrc
+ 
+ 
+sudo yum install mysql-server
+sudo /sbin/service mysqld start
+yum install memcached
+sudo /usr/bin/mysql_secure_installation
+yum install mysql-devel
+pip install dpkt
+pip install python-memcached
+
+yum install glib*
+
+pip install http://python-statlib.googlecode.com/files/statlib-1.1.tar.gz
+
+pip install MySQL-python
+
+download weka
+
+setup weka and pcap paths8
+
+downlad websitefingerprinting
+i copied my code in here for testing
+
+
+
+    ssh into your remote box. Type screen Then start the process you want.
+
+    Press Ctrl-A then Ctrl-D. This will "detach" your screen session but leave your processes running. You can now log out of the remote box.
+
+    If you want to come back later, log on again and type screen -r This will "resume" your screen session, and you can see the output of your process.
+
+
+
+- LibSVM for weka
+
+1- login to the VM with putty (X11 forwadring enabled)
+2- go to weka directory
+3- issue the command java -jar weka.jar. GUI will come up.
+4- go to Tools/Package Manager
+5- choose LibSVM and then click install
+
+
+
+
+installing python-pip and sklearn
+-----------
+yum -y install python-pip
+
+pip install --upgrade scikit-learn
+pip install --upgrade statsmodels
+pip install --upgrade patsy
+
+installing matplotlib for drawing:
+------------------------
+sudo yum install freetype-devel
+sudo yum install libpng-devel
+pip install matplotlib
+
+
+
+
+sudo yum install ruby
+
+yum install gcc-c++
+
+
+--------------
+install sysdig that supports containers (e.g. version 0.9)
+
+
+
