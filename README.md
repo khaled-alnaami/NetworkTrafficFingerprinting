@@ -21,7 +21,7 @@ Contact
 Notes
 -----
 
-* Installed and tested on Ubuntu 14.04
+* Installed and tested on Ubuntu 14.04 and CentOS 6.5
 * Please visit https://github.com/kpdyer/website-fingerprinting and install requirements and follow instructions mentioned in README.md
 * In addition, install the following:
 Python 2.7.6, pip, numpy, scipy, sciki-learn, statsmodels, patsy, freetype-devel, libpng-devel, matplotlib, cython, gensim, python-devel python-nose python-setuptools gcc gcc-gfortran gcc-c++ blas-devel lapack-devel atlas-devel, cvxopt, mysql-server, memcached, mysql-devel, dpkt, python-memcached, glib, weka, LibSVM, MySQL-python, ruby
